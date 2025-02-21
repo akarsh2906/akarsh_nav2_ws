@@ -1,0 +1,61 @@
+
+- topic_name: "clock"
+  ros_type_name: "rosgraph_msgs/msg/Clock"
+  gz_type_name: "gz.msgs.Clock"
+  subscriber_queue: 5
+  publisher_queue: 6
+  lazy: true
+  direction: "GZ_TO_ROS"
+
+
+- topic_name: "scan"
+  ros_type_name: "sensor_msgs/msg/LaserScan"
+  gz_type_name: "gz.msgs.LaserScan"
+  subscriber_queue: 5
+  publisher_queue: 6
+  lazy: true
+  direction: "GZ_TO_ROS"
+
+
+- topic_name: "imu"
+  ros_type_name: "sensor_msgs/msg/Imu"
+  gz_type_name: "gz.msgs.IMU"
+  subscriber_queue: 5
+  publisher_queue: 6
+  lazy: true
+  direction: "GZ_TO_ROS"
+
+
+- topic_name: "depth_camera/camera_info"
+  ros_type_name: "sensor_msgs/msg/CameraInfo"
+  gz_type_name: "gz.msgs.CameraInfo"
+  subscriber_queue: 5
+  publisher_queue: 6
+  lazy: true
+  direction: "GZ_TO_ROS"
+
+
+- topic_name: "depth_camera/points"
+  ros_type_name: "sensor_msgs/msg/PointCloud2"
+  gz_type_name: "gz.msgs.PointCloudPacked"
+  subscriber_queue: 5
+  publisher_queue: 6
+  lazy: true
+  direction: "GZ_TO_ROS"
+
+
+- topic_name: "ground_truth"
+  ros_type_name: "nav_msgs/msg/Odometry"
+  gz_type_name: "gz.msgs.Odometry"
+  subscriber_queue: 5
+  publisher_queue: 6
+  lazy: true
+  direction: "GZ_TO_ROS"
+
+# - topic_name: "tf"
+#   ros_type_name: "tf2_msgs/msg/TFMessage"
+#   gz_type_name: "gz.msgs.Pose_V"
+#   subscriber_queue: 5
+#   publisher_queue: 6
+#   lazy: true
+#   direction: "GZ_TO_ROS"
