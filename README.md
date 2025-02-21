@@ -1,11 +1,12 @@
 # Welcome to My Autonomous ROS2 Robot Simulation!
 I have another repository called "neobot" where I am trying to implement many different things. I am using the same robot but this repository is much cleaner and created for the assignment specifically.
 
+Gz Sim Screenshot
+![Gz Sim Screenshot](https://github.com/akarsh2906/neobot/blob/main/NeobotGzSim.png)
 
 This repository is a ros2 workspace consisting packages for a differential drive robot simulation using **ROS2 Jazzy** and **Gazebo Harmonic** running on Ubuntu 24.04.
 ## [Demonstration Video](https://drive.google.com/file/d/1oKI765Btkg7Z4Wbc1PxxNoXfpkGyQTXi/view?usp=drive_link)
 https://drive.google.com/file/d/1oKI765Btkg7Z4Wbc1PxxNoXfpkGyQTXi/view?usp=drive_link
-
 
 ## Dependencies:
 ROS2 Jazzy, Gazebo Harmonic
