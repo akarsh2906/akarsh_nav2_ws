@@ -1,3 +1,4 @@
+
 # Welcome to My Autonomous ROS2 Robot Simulation!
 I have another repository called "neobot" where I am trying to implement many different things. I am using the same robot but this repository is much cleaner and created for the assignment specifically.
 
@@ -9,7 +10,11 @@ This repository is a ros2 workspace consisting packages for a differential drive
 https://drive.google.com/file/d/1oKI765Btkg7Z4Wbc1PxxNoXfpkGyQTXi/view?usp=drive_link
 
 ## Dependencies:
-ROS2 Jazzy, Gazebo Harmonic
+Install ROS2 Jazzy <br />
+Install Gazebo Harmonic <br />
+Install Nav2: <br />
+
+    sudo apt-get install ros-jazzy-navigation2 ros-jazzy-nav2-bringup
 
     sudo apt-get update
 Install the interfaces:
@@ -58,9 +63,19 @@ Initial pose (0,0,0) gets sent automatically as the node starts, then enter the 
 
 ## Nav2 Parameters tuning observations
 ### AMCL
-### Global Planner
+Increased the values of **alpha1** and **alpha4**, which makes amcl more cautious with rotation data, this reduced the occasional drift in odom to map transform due to too much rotation.
 ### Local Planner
+**Using Regulated Pure pursuit controller (RPP)** I made the following changes:
+
+    max_lookahead_dist 0.9 to 0.8
+    rotate_to_heading_angular_vel from 1.8 to 0.5
+    use_velocity_scaled_lookahead_dist false to true
+    use_cost_regulated_linear_velocity_scaling false to true
+    rotate_to_heading_min_angle 0.785 to 0.3
+
+These changes made the robot follow the path more closely, since the rotate to heading minimum angle is now lesser, robot needs to be closer to path heading to start moving forward. This alongside the lookahead parameters made the robot not cut corners during sharp turns, this is helpful in tight environments where sharper turns with obstacles around are required.
 ### Costmaps
+Made changes to the inflation radius and cost factor parameters according to the size of the robot.
 
 ## Sensor Fusion of LiDAR and Camera PointCloud
 I tried to use the PointCloud data with my 2D Lidar data to update the costmaps, however the PointCloud data was not being used, I checked the PointCloud topic, the rate of the topic, the frame_id, etc and all seem to be correct, here is the parameter snippet.
