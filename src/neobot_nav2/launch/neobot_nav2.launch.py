@@ -22,7 +22,7 @@ def generate_launch_description():
         launch_arguments={
             'use_sim_time': use_sim_time,
             'autostart': autostart,
-            'map': os.path.join(neobot_nav2_path, 'maps', 'neobot_map.yaml'),   #'neobot_map.yaml' for warehouse
+            'map': os.path.join(neobot_nav2_path, 'maps', 'default_map.yaml'),   #'neobot_map.yaml' for warehouse
             'params_file': os.path.join(neobot_nav2_path, 'config', 'nav2_params.yaml'),
             'package_path': neobot_nav2_path, 
         }.items()
@@ -48,7 +48,7 @@ def generate_launch_description():
         executable='map_server',
         name='map_server',
         output='screen',
-        parameters=[{'yaml_filename': os.path.join(neobot_nav2_path, 'maps', 'neobot_map.yaml')}], #'neobot_map.yaml' for warehouse
+        parameters=[{'yaml_filename': os.path.join(neobot_nav2_path, 'maps', 'default_map.yaml')}], #'neobot_map.yaml' for warehouse
     )
 
     static_transform_publisher_node = Node(

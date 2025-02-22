@@ -23,7 +23,7 @@ def generate_launch_description():
     use_rviz = LaunchConfiguration("use_rviz")
 
     default_use_rviz = "False"
-    default_world_file_path =  join(neobot_path, "worlds", "small_warehouse.world")
+    default_world_file_path =  join(neobot_path, "worlds", "default.world") #"small_warehouse.world"
     default_rviz_config_path = join(neobot_path, 'rviz/rviz_config.rviz')
 
     

@@ -1,9 +1,9 @@
 amcl:
   ros__parameters:
-    alpha1: 0.2
+    alpha1: 0.3
     alpha2: 0.2
     alpha3: 0.2
-    alpha4: 0.2
+    alpha4: 0.3
     alpha5: 0.2
     base_frame_id: "base_footprint"
     beam_skip_distance: 0.5
@@ -13,7 +13,7 @@ amcl:
     global_frame_id: "map"
     lambda_short: 0.1
     laser_likelihood_max_dist: 2.0
-    laser_max_range: 100.0
+    laser_max_range: 5.8
     laser_min_range: -1.0
     laser_model_type: "likelihood_field"
     max_beams: 60
@@ -100,13 +100,13 @@ controller_server:
     FollowPath:
       plugin: "nav2_regulated_pure_pursuit_controller::RegulatedPurePursuitController"
       desired_linear_vel: 0.5
-      lookahead_dist: 0.6
-      min_lookahead_dist: 0.3
-      max_lookahead_dist: 0.9
+      lookahead_dist: 0.7
+      min_lookahead_dist: 0.5
+      max_lookahead_dist: 0.8
       lookahead_time: 1.5
-      rotate_to_heading_angular_vel: 1.8
+      rotate_to_heading_angular_vel: 0.5
       transform_tolerance: 0.1
-      use_velocity_scaled_lookahead_dist: false
+      use_velocity_scaled_lookahead_dist: true
       min_approach_linear_velocity: 0.05
       approach_velocity_scaling_dist: 0.6
       use_collision_detection: true
@@ -114,12 +114,12 @@ controller_server:
       use_regulated_linear_velocity_scaling: true
       use_fixed_curvature_lookahead: false
       curvature_lookahead_dist: 0.25
-      use_cost_regulated_linear_velocity_scaling: false
+      use_cost_regulated_linear_velocity_scaling: true
       regulated_linear_scaling_min_radius: 0.9
       regulated_linear_scaling_min_speed: 0.25
       use_rotate_to_heading: true
       allow_reversing: false
-      rotate_to_heading_min_angle: 0.785
+      rotate_to_heading_min_angle: 0.3
       max_angular_accel: 3.2
       max_robot_pose_search_dist: 10.0
 
@@ -312,8 +312,8 @@ velocity_smoother:
     smoothing_frequency: 20.0
     scale_velocities: False
     feedback: "OPEN_LOOP"
-    max_velocity: [0.5, 0.0, 2.0]
-    min_velocity: [-0.5, 0.0, -2.0]
+    max_velocity: [0.5, 0.0, 1.0]
+    min_velocity: [-0.5, 0.0, -1.0]
     max_accel: [2.5, 0.0, 3.2]
     max_decel: [-2.5, 0.0, -3.2]
     odom_topic: /diff_controller/odom # "/odom_encoders"
